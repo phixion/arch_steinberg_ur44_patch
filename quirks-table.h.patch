@@ -1,0 +1,37 @@
+--- quirks-table.h	2016-12-11 20:17:54.000000000 +0100
++++ quirks-table.h.new	2017-02-25 23:47:54.391249393 +0100
+@@ -3278,3 +3278,34 @@
+ },
+ 
+ #undef USB_DEVICE_VENDOR_SPEC
++
++{
++    USB_DEVICE(0x0499, 0x1509),
++    .driver_info = (unsigned long) & (const struct snd_usb_audio_quirk) {
++        /* .vendor_name = "Yamaha", */
++        /* .product_name = "Steinberg UR44", */
++        .ifnum = QUIRK_ANY_INTERFACE,
++        .type = QUIRK_COMPOSITE,
++        .data = (const struct snd_usb_audio_quirk[]) {
++            {
++                .ifnum = 1,
++                .type = QUIRK_AUDIO_STANDARD_INTERFACE
++            },
++            {
++                .ifnum = 2,
++                .type = QUIRK_AUDIO_STANDARD_INTERFACE
++            },
++            {
++                .ifnum = 3,
++                .type = QUIRK_MIDI_YAMAHA
++            },
++            {
++                .ifnum = 4,
++                .type = QUIRK_IGNORE_INTERFACE
++            },
++            {
++                .ifnum = -1
++            }
++        }
++    }
++},
