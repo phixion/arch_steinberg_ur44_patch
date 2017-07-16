@@ -1,6 +1,5 @@
-Kernel Patch for the Steinberg UR44 Audio Interface to work with Archlinux. 
+Kernel Patch for the Steinberg UR44 USB Audio Interface to work with Archlinux.
 
-An unprofessional patch to make professional hardware work on professional OSes.
 
 $ abs core/linux
 
